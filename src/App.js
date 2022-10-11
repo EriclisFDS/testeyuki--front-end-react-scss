@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+import { Router, Routes, Route } from 'react-router-dom';
+
+import { createBrowserHistory } from 'history';
+
+import Books from './pages/books';
+import Genres from './pages/genres';
+
+import "./styles/general.scss"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const history = createBrowserHistory();
+    return (
+        
+            <Routes>
+              <Route element={<Genres/>} path="/"/>
+              <Route element={<Books/>} path="/:genreId/books" />
+            </Routes>
+        
+        
+    );
 }
 
 export default App;
